@@ -1,0 +1,8 @@
+Servicios de Firebase
+---------------------------------------
+Authentication => autenticarse
+Database => Utilizar base de datos
+Storage => para almacenar archivos
+Hosting => Subir aplicacion o sitios web
+Functions => Ejecutar funciones o codigo en la nube
+Machine Learning => para automatizar las tareas o bots
