@@ -1,3 +1,4 @@
+---------------------------------------
 Servicios de Firebase
 ---------------------------------------
 Authentication => autenticarse
@@ -6,3 +7,30 @@ Storage => para almacenar archivos
 Hosting => Subir aplicacion o sitios web
 Functions => Ejecutar funciones o codigo en la nube
 Machine Learning => para automatizar las tareas o bots
+
+--------------------------------------
+Algunas Funciones de JavaScript
+--------------------------------------
+-toString() => Convierte un Numero a String.
+-parseInt() => Convierte un String a Numero.
+-toLowerCase() => Convierte a minuscula.
+-toUpperCase() => Convierte a mayuscula.
+
+-split() => divide una cadena de caracteres en varios bloques y crea un array con estos.
+-reverse() => invierte el orden de los elementos de un arrar, el primer elemento para ser el ultimo y el ultimo pasa ser el primero
+-join() => permite unir caracteres de un array a un texto.
+*-reduce() => permite aplicar una funcion a un acumulador y cada valor de una array(de izquierda a derecha) para reducirlo a un unico valor
+-substring() => pinta los caracteres extraidos
+-substr() => no pinta los caracteres extraidos de la longitud
+
+-*map
+-*filter
+-sort
+-find
+-populate
+-skip
+-exec
+-limit
+-for
+-replace
+-Expresiones Regulares
