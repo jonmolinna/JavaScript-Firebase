@@ -15,6 +15,7 @@ Algunas Funciones de JavaScript
 -parseInt() => Convierte un String a Numero.
 -toLowerCase() => Convierte a minuscula.
 -toUpperCase() => Convierte a mayuscula.
+-push() => Inserta datos a un arreglo.
 
 -split() => divide una cadena de caracteres en varios bloques y crea un array con estos.
 -reverse() => invierte el orden de los elementos de un arrar, el primer elemento para ser el ultimo y el ultimo pasa ser el primero
@@ -22,10 +23,68 @@ Algunas Funciones de JavaScript
 *-reduce() => permite aplicar una funcion a un acumulador y cada valor de una array(de izquierda a derecha) para reducirlo a un unico valor
 -substring() => pinta los caracteres extraidos
 -substr() => no pinta los caracteres extraidos de la longitud
+-sort() => Ordena los elementos de un arreglo conviertiendoles a String.
+
+===== Funcion Filter ================================================
+*-filter() => permite filtrar los elementos de un array y generar uno nuevo con los elementos que cumplen una determinada condicion
+
+    let numArray = [1,2,3,4,5,6,7,8,9,10] 
+    let filterNumArray = numArray.filter(element => element > 5)
+
+    console.log("numArray => ", numArray)
+    console.log("filterNumArray => ", filterNumArray)
+    //Output
+    //numArray =>  [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    //filterNumArray =>  [ 6, 7, 8, 9, 10 ]
+
+===== Funcion Slice ================================================
+-slice => Toma un trozo de un array, indicando por un indice de inicio y final
+
+    // constante para mejor legibilidad de los ejemplos
+    const _ = undefined
+
+    // Ejemplos con números
+    // Tomar los n primeros elementos
+    [0,1,2,3,4,5,6,7,8].slice(_,5)
+    // [0,1,2,3,4]
+
+    // comienzo y final del slice
+    [0,1,2,3,4,5,6,7,8].slice(3,5)
+    // [3,4]
+
+    // Tomar elementos del final
+    [0,1,2,3,4,5,6,7,8].slice(-2)
+    // [7,8]
+
+    // Puedes usar slice con arrays con valores de cualquier tipo de datos escalar
+    const computerScientists = ['John Hughes', 'Ada Lovelace', 'Barbara Liskov', 'Grace Hopper', 'Alan Key', 'John McCarthy']
+
+    computerScientists.slice(1, 4)
+    // [ "Ada Lovelace", "Barbara Liskov", "Grace Hopper" ]
+
+    computerScientists.slice(_, 3)
+    // [ "John Hughes", "Ada Lovelace", "Barbara Liskov" ]
+
+    computerScientists.slice(-2)
+    // [ "Alan Key", "John McCarthy" ]
+
+    // Clonar un array de valores con slice
+    computerScientists.slice()
+    // ['John Hughes', 'Ada Lovelace', 'Barbara Liskov', 'Grace Hopper', 'Alan Key', 'John McCarthy']
+
+    // ¡¡ Pero ojo con los objetos !!
+    const punto1 = {x: 5, y: 10};
+    const punto2 = {x: 8, y: 8};
+    [punto1, punto2].slice()
+    // [ Object, Object ]
+    [punto1, punto2].slice()[0].x = 7;
+    punto1
+    // { x: 7, y: 10 } ¡¡Hemos modificado 'punto1'!!
+
+
+===== Funcion  ================================================
 
 -*map
--*filter
--sort
 -find
 -populate
 -skip
