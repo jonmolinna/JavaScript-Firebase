@@ -20,13 +20,30 @@ Algunas Funciones de JavaScript
 -split() => divide una cadena de caracteres en varios bloques y crea un array con estos.
 -reverse() => invierte el orden de los elementos de un arrar, el primer elemento para ser el ultimo y el ultimo pasa ser el primero
 -join() => permite unir caracteres de un array a un texto.
-*-reduce() => permite aplicar una funcion a un acumulador y cada valor de una array(de izquierda a derecha) para reducirlo a un unico valor
 -substring() => pinta los caracteres extraidos
 -substr() => no pinta los caracteres extraidos de la longitud
 -sort() => Ordena los elementos de un arreglo conviertiendoles a String.
 
+===== Funcion Reduce ================================================
+*-reduce() => permite aplicar una funcion a un acumulador y cada valor de una array
+              (de izquierda a derecha) para reducirlo a un unico valor
+
+    const suma = [10, 20, 30].reduce((a, b) => a + b);
+    console.log(suma); // suma = 60 ==> a=10, b=20; ==> a=30, b=30 ==> a+b => 60
+
+    const nombres = ['Jorge', 'Maria', 'Jose', 'Bod', 'Pat', 'Maria', 'Jose', 'Jose'];
+    const cantidadNombres = nombres.reduce((contadorNombre, nombre) => {
+        contadorNombre[nombre] = (contadorNombre[nombre] || 0) + 1;
+        return contadorNombre;
+    }, {});
+
+    console.log(cantidadNombres);
+    // {Bod: 1, Jorge: 1, Jose: 3, Maria: 2, Pat: 1}
+
+
 ===== Funcion Filter ================================================
-*-filter() => permite filtrar los elementos de un array y generar uno nuevo con los elementos que cumplen una determinada condicion
+*-filter() => permite filtrar los elementos de un array y 
+              generar uno nuevo con los elementos que cumplen una determinada condicion
 
     let numArray = [1,2,3,4,5,6,7,8,9,10] 
     let filterNumArray = numArray.filter(element => element > 5)
@@ -92,4 +109,5 @@ Algunas Funciones de JavaScript
 -limit
 -for
 -replace
+-concat
 -Expresiones Regulares
