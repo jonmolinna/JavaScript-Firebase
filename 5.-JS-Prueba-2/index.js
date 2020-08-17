@@ -73,10 +73,66 @@ function chunkArray(arr, len){
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
 // ex. [[1,2], [3,4], [5,6], [7]] = [1,2,3,4,5,6,7]
-function flattenArray(arrays){}
+function flattenArray(arrays){
+    // Solution 1
+    //return arrays.reduce((a, b) => a.concat(b));
+
+    // Solution 2
+    //return [].concat.apply([], arrays);
+
+    // Solution 3
+    return [].concat(...arrays);
+}
 
 // Call Function
-const output = flattenArray([[1,2], [3,4], [5,6], [7]]);
-console.log(output)
+// const output = flattenArray([[1,2], [3,4], [5,6], [7]]);
+// console.log(output)
 
-// 20:44
+
+// CHALLENGE 4: ANAGRAM
+// Return true if anagram and false if not
+// ex. 'elbow' === 'below'
+// ex. 'Dormitory' === 'dirty room##'
+function isAnagram(str1, str2){
+    return formatStr(str1) === formatStr(str2);
+}
+
+// Helper function
+function formatStr(str){
+    return str
+        .replace(/[^\w]/g, '')
+        .toLowerCase()
+        .split('')
+        .sort()
+        .join('');
+}
+
+// Call Function
+//const output = isAnagram('Dormitory', 'dirty room###');
+//console.log(output)
+
+
+// CHALLENGE 5: LETTER CHANGES
+// Change every letter of the string to the one that follows it
+// and capitalize the vowels
+// Z should turn to A
+// ex. 'hello there' === 'Ifmmp UIfsf'
+function letterChanges(str){
+    let newStr = str.toLowerCase().replace(/[a-z]/gi, (char) => {
+        if(char === 'z' || char === 'Z'){
+            return 'a';
+        } else {
+            return String.fromCharCode(char.charCodeAt() + 1)
+        }
+    });
+    
+    newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => {
+        return vowel.toUpperCase();
+    })
+
+    return newStr
+}
+
+// Call Function
+const output = letterChanges('Hello There');
+console.log(output)
