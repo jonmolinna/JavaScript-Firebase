@@ -17,5 +17,6 @@
  *      ^   =>  Evalua el inicio de una cadena de texto
  *      $   =>  Evalua el final de una cadena de texto
  *      |   =>  o
- *      /g   =>  Realiza busqueda de manera global
+ *      /g   => Realiza busqueda de manera global
+ *      /gi =>  Realiza busqueda de manera global
  */
