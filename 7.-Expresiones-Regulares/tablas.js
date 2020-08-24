@@ -1,4 +1,6 @@
 /**
+ *      Atajos para expresiones Regulares
+ * ---------------------------------------------------------------
  *      \d  =>  Cualquier Numero
  *      \w  =>  Cualquier letra o numero
  *      \s  =>  Cualquier espacio en blanco incluido tabs, salto de linea o similares
