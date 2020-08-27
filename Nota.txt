@@ -17,6 +17,7 @@ Algunas Funciones de JavaScript
 -toUpperCase() => Convierte a mayuscula.
 -push() => Inserta datos a un arreglo.
 -charCodeAt() => Devuelve el Codigo del Caracter
+-indexOf() => Buscar una palabra en una cadena, en caso no encuentre devuelve -1
 
 
 ===== Funcion Join ================================================
