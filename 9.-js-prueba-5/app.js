@@ -159,13 +159,35 @@ function Pregunta8(texto="", patron=""){
 /**
  * 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
  */
+function Pregunta9(max, min){
+    const aleatorio = Math.round(Math.random() * (max - min) + min);
+    console.log(aleatorio);
 
+    // Resuelto por el instructor
+    const numero = Math.round((Math.random() * 100) + 500)
+    //console.log(numero)
+}
+
+//Pregunta9(501, 600)
 
 /******************** CHALLENGE 10 *************************** */
 /**
  * 10) Programa una función que reciba un número y evalúe si es capicúa o no
  * (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
  */
+function Pregunta10(numero=0){
+    if(!numero) return console.warn("Ingrese un Numero");
+    if(typeof numero !== "number") return console.warn("Ingrese un Numero");
+
+    numero = numero.toString();
+    let alReves = numero.split("").reverse().join("");
+
+    return(numero === alReves) ?
+    console.info(`Si es capicua: ${numero} = ${alReves}`) :
+    console.log(`No es capicua: ${numero} = ${alReves}`)
+}
+
+//Pregunta10(2000)
 
 
 /******************** CHALLENGE 11 *************************** */
@@ -174,3 +196,48 @@ function Pregunta8(texto="", patron=""){
  * (El factorial de un entero positivo n, se define como el producto de todos los números
  * enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
  */
+function Pregunta11(numero=undefined){
+    if(numero===undefined) return console.warn("Ingrese un Numero");
+    if(typeof numero !== "number") return console.error("Lo ingresado no es Numero");
+    if(numero === 0) return console.error("El numero no puede ser Cero");
+    if(Math.sign(numero) === -1) return console.warn("El numero no puede ser Negativo");
+
+    /*
+    let arreglo = [];
+    for(let i=1; i<=numero; i++){
+        arreglo.push(i)
+    }
+
+    const factorial = arreglo.reduce((a,b) => a*b)
+    console.log(factorial)
+    */
+
+    let factorial = 1;
+    for(let i=numero; i>1; i--){
+        factorial *= i;
+    }
+    return console.info(factorial)
+}
+
+//Pregunta11(5)
+
+
+/******************** CHALLENGE 12 *************************** */
+/**
+ * 12) Programa una función que determine si un número es primo
+ * (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+ */
+
+
+ /******************** CHALLENGE 13 *************************** */
+/**
+ * 13) Programa una función que determine si un número es par o impar, pe.
+ * miFuncion(29) devolverá Impar
+*/
+
+
+ /******************** CHALLENGE 14 *************************** */
+/**
+ * 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe.
+ * miFuncion(0,"C") devolverá 32°F
+*/
