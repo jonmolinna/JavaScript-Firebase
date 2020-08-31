@@ -227,6 +227,29 @@ function Pregunta11(numero=undefined){
  * 12) Programa una función que determine si un número es primo
  * (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
  */
+function Pregunta12(numero = undefined){
+    if(numero===undefined) return console.warn("Ingrese un Numero");
+    if(typeof numero !== "number") return console.error("Lo ingresado no es Numero");
+    if(numero === 0) return console.error("El numero no puede ser Cero");
+    if(numero === 1) return console.error("El numero no puede ser Uno");
+    if(Math.sign(numero) === -1) return console.warn("El numero no puede ser Negativo");
+
+    let divisible = false;
+    for(let i=2; i<numero; i++){
+        if((numero % i)===0){
+            divisible = true;
+            break;
+        }
+    }
+
+    if(divisible === true){
+        console.log('No es primo');
+    } else {
+        console.log('Es primo');
+    }
+}
+
+//Pregunta12(17);
 
 
  /******************** CHALLENGE 13 *************************** */
@@ -234,10 +257,123 @@ function Pregunta11(numero=undefined){
  * 13) Programa una función que determine si un número es par o impar, pe.
  * miFuncion(29) devolverá Impar
 */
+function Pregunta13(numero = undefined){
+    if(numero===undefined) return console.warn("Ingrese un Numero");
+    if(typeof numero !== "number") return console.error("Lo ingresado no es Numero");
+
+    if(numero % 2 === 0){
+        console.log('Es un numero Par')
+    } else {
+        console.log('Es un numero Impar')
+    }
+}
+
+//Pregunta13(-12)
 
 
  /******************** CHALLENGE 14 *************************** */
 /**
  * 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe.
  * miFuncion(0,"C") devolverá 32°F
+*/
+function Pregunta14(grados=undefined, unidad=undefined){
+    if(grados===undefined) return console.warn("Ingrese un grado");
+    if(typeof grados !== "number") return console.error("Lo ingresado no es Numero");
+
+    if(unidad===undefined) return console.warn("Ingrese el tipo de grado");
+    if(typeof unidad !== "string") return console.error("Lo ingresado no es una cadena de texto");
+    if(unidad.length !== 1 || !/(C|F)/.test(unidad)) return console.warn("Solo ingrese C o F en Mayusculas");
+
+    if(unidad === "C"){
+        return console.info(`${grados}°C = ${Math.round((grados*(9/5))+32)}°F`)
+    } else if(unidad === "F") {
+        return console.info(`${grados}°F = ${Math.round((grados-32) * (5/9))}°C`)
+    }
+
+}
+
+//Pregunta14(32, "F")
+
+
+ /******************** CHALLENGE 15 *************************** */
+/**
+ * 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe.
+ * miFuncion(100,2) devolverá 4 base 10.
+*/
+function Pregunta15(numero=undefined, base=undefined){
+    if(numero===undefined) return console.warn("Ingrese un Numero");
+    if(typeof numero !== "number") return console.error("Lo ingresado no es Numero");
+
+    if(base===undefined) return console.warn("Ingrese un Numero");
+    if(typeof base !== "number") return console.error("Lo ingresado no es Numero");
+
+    if(base === 2){
+        return console.info(`${numero} base ${base} = ${parseInt(numero, base)} base 10`);
+    } else if(base === 10){
+        return console.info(`${numero} base ${base} = ${numero.toString(base)} base 2`);
+    } else {
+        return console.error('El tipo base a convertir NO es valido');
+    }
+}
+
+//Pregunta15(4, 10);
+
+
+/******************** CHALLENGE 16 *************************** */
+/**
+ * 16) Programa una función que devuelva el monto final después de aplicar 
+ * un descuento a una cantidad dada, pe.
+ * miFuncion(1000, 20) devolverá 800.
+*/
+function Pregunta16(monto=undefined, descuento=0){
+    if(monto===undefined) return console.warn("Ingrese un Monto");
+    if(typeof monto !== "number") return console.error("Lo ingresado no es Numero");
+    if(monto === 0) return console.error("El Monto no puede ser cero");
+    if(Math.sign(monto) === -1) return console.error("El Monto no puede ser Negativo");
+
+    if(typeof descuento !== "number") return console.error("Lo ingresado no es Numero");
+    if(Math.sign(descuento) === -1) return console.error("El Descuento no puede ser Negativo");
+
+    let precioTotal = 0;
+    precioTotal = monto - ((monto * descuento)/100)
+    return console.log(`S/.${monto} - ${descuento}% == S/.${precioTotal}`)
+}
+
+//Pregunta16(50, 2);
+
+
+/******************** CHALLENGE 17 *************************** */
+/**
+ * 17) Programa una función que dada una fecha válida determine cuantos años
+ * han pasado hasta el día de hoy, pe.
+ * miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+*/
+function Pregunta17(fecha = undefined){
+    if(fecha===undefined) return console.warn("Ingrese una Fecha");
+    if(!(fecha instanceof Date)) return console.error("El valor ingresado no es una fecha valida");
+
+    // getTime() => devuelve a milisegundos
+    // Math.abs => valor absoluto
+
+    let hoyMenosFecha = new Date().getTime() - fecha.getTime();
+    let aniosEnMS = 1000 * 60 * 60 * 24 * 365
+    let aniosHumanos = Math.floor(hoyMenosFecha/aniosEnMS);
+
+    if(Math.sign(aniosHumanos) === -1){
+        console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`)
+    } else if(Math.sign(aniosHumanos) === 1){
+        console.info(`Han pasado ${aniosHumanos} años, desde ${fecha.getFullYear()}`)
+    } else {
+        console.info(`Estamos en el año actual ${fecha.getFullYear()}`)
+    }
+    
+}
+
+Pregunta17(new Date(1996,10,19));
+
+/*
+18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
 */
