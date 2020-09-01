@@ -369,11 +369,69 @@ function Pregunta17(fecha = undefined){
     
 }
 
-Pregunta17(new Date(1996,10,19));
+//Pregunta17(new Date(1996,10,19));
 
-/*
-18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
-19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
-20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
 
+/******************** CHALLENGE 18 *************************** */
+/**
+ * 18) Programa una función que dada una cadena de texto cuente 
+ * el número de vocales y consonantes, pe.
+ * miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
 */
+function Pregunta18(cadena=""){
+    if(!cadena) return console.warn("Ingrese una Cadena");
+    if(typeof cadena !== "string") return console.error("Ingrese una Cadena");
+
+    let vocales = 0;
+    let consonantes = 0;
+    cadena = cadena.toLowerCase();
+
+    for(let letra of cadena){
+        if(/[aeiouáéíóúü]/.test(letra)) vocales++;
+
+        if(/[bcdfghjklmnñpqrstvwxyz]/.test(letra)) consonantes++;
+    }
+
+    return console.info({
+        cadena,
+        vocales,
+        consonantes
+    })
+
+}
+
+//Pregunta18('Hola Mundo');
+
+
+/******************** CHALLENGE 19 *************************** */
+/**
+ * 19) Programa una función que valide que un texto sea un nombre válido, pe.
+ * miFuncion("Jonathan MirCha") devolverá verdadero.
+*/
+function Pregunta19(nombre=""){
+    if(!nombre) return console.warn("Ingrese un Nombre");
+    if(typeof nombre !== "string") return console.error("Ingrese un Nombre");
+
+    let expReg = /^[A-Za-zÑñáéíóúÜü\s]+$/g.test(nombre);
+
+    return (expReg) ? console.info("Nombre Valido") : console.info("No es un Nombre Valido")
+}
+
+//Pregunta19("Jonathan Mircha");
+
+
+/******************** CHALLENGE 20 *************************** */
+/**
+ * 20) Programa una función que valide que un texto sea un email válido, pe.
+ * miFuncion("jonmircha@gmail.com") devolverá verdadero.
+*/
+function Pregunta20(email=""){
+    if(!email) return console.warn("Ingrese un Email");
+    if(typeof email !== "string") return console.error("Ingrese un Email");
+
+    let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
+
+    return (expReg) ? console.info("Email Valido") : console.info("No es un Email Valido")
+}
+
+//Pregunta20("jonmircha@gmail.com");
