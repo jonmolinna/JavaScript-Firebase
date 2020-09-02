@@ -511,6 +511,22 @@ function Pregunta23(arr){
  * el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe.
  * miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
 */
+function Pregunta24(arr){
+    if(arr === undefined) return console.warn("Ingrese un Array de Numeros");
+    if(!(arr instanceof Array)) return console.error("El valor ingresado no es un Arreglo");
+    if(arr.length === 0) return console.warn("El arreglo esta vacio");
+
+    for(let num of arr){
+        if(typeof num !== "number") return console.error(`El valor ${num} ingresado, no es numero`)
+    }
+
+    let asc = arr.map(number => number).sort((a,b) => a-b)
+    let desc = arr.map(number => number).sort((a,b) => b-a)
+
+    console.log({asc, desc})
+}
+
+//Pregunta24([7, 5,7,8,6]);
 
 
 /******************** CHALLENGE 25 *************************** */
@@ -518,10 +534,63 @@ function Pregunta23(arr){
  * 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe.
  * miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
 */
+function Pregunta25(arr){
+    if(arr === undefined) return console.warn("Ingrese un Array de Numeros");
+    if(!(arr instanceof Array)) return console.error("El valor ingresado no es un Arreglo");
+    if(arr.length === 0) return console.warn("El arreglo esta vacio");
+    if(arr.length === 1) return console.warn("El arreglo debe tener al menos 2 elementos");
+
+    // Forma 1
+    //let sinDuplicados = arr.filter((value, index, self) => self.indexOf(value) === index)
+    
+    // Forma 2
+    let sinDupli = [...new Set(arr)]
+    console.log(sinDupli)
+
+}
+
+//Pregunta25(["x", 10, "x", 2, "10", 10, true, true])
 
 
 /******************** CHALLENGE 26 *************************** */
 /**
  * 26) Programa una función que dado un arreglo de números obtenga el promedio, pe.
  * promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+*/
+function Pregunta26(arr){
+    let suma = arr.reduce((a,b) => a+b);
+    let promedio = suma/(arr.length)
+    console.log(promedio)
+}
+
+//Pregunta26([9,8,7,6,5,4,3,2,1,0]);
+
+
+
+
+/*
+27) Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+
 */
