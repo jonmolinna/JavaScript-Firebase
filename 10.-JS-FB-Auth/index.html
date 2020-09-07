@@ -18,13 +18,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item logged-out" style="display: none;">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#signinModal">Signin</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item logged-out" style="display: none;">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">SignUp</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item logged-in" style="display: none;">
                         <a class="nav-link" href="#" id="logout">Logout</a>
                     </li>
                 </ul>
@@ -32,6 +32,15 @@
         </div>
     </nav>
 
+    <!-- MAIN CONTENT -->
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group posts">
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL SignUp --->
     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,8 +112,11 @@
                             required
                         >
                     </div>
-                    <button type="submit" class="btn btn-success">
-                        Signin
+                    <button type="submit" class="btn btn-secondary btn-block">
+                        Login
+                    </button>
+                    <button type="button" class="btn btn-danger btn-block" id="googleLogin">
+                        Login with Google
                     </button>
                 </form>
             </div>
@@ -125,7 +137,8 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script> <!--Servicio de auth-->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script> <!--Servicio de BD-->
 
     <script>
     // Your web app's Firebase configuration
@@ -141,6 +154,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    const fs = firebase.firestore();
 
     </script>
 
