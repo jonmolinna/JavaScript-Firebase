@@ -121,5 +121,3 @@ auth.onAuthStateChanged(user => {
         loginCheck(user);
     }
 })
-
-//1:08:13
