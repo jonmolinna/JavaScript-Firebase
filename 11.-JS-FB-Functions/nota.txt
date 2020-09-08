@@ -1,0 +1,27 @@
+npm install -g firebase-tools => permite crear proyectos en firebase
+
+Para iniciar Firebase
+----------------------------------------------
+firebase login
+? Allow Firebase to collect CLI usage and error reporting information? (Y/n)  => Y
+firebase init
+Are you ready to proceed? (Y/n)  => Y
+Functions: Configure and deploy Cloud Functions => Seleccionas con espacio y enter
+Use an existing project => enter
+Seleccionas el Nombre del Proyecto
+JavaScript
+Do you want to use ESLint to catch probable bugs and enforce style? (y/N)  => y
+Do you want to install dependencies with npm now? (Y/n) => y
+
+
+npm install express
+npm install cors
+
+Para inicializar el Servidor
+-------------------------------------------------
+firebase serve
+
+
+Para despliegar a la Nube
+--------------------------------------------------
+firebase deploy
